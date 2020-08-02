@@ -9,6 +9,7 @@
     <DockPanel LastChildFill="True">
         <WrapPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
             <Button x:Name="btVisitType" Content="Типы посещений" Click="btVisitType_Click"/>
+            <Button x:Name="btPatients" Content="Пациенты" Click="btPatients_Click"/>
         </WrapPanel>
         <Grid DockPanel.Dock="Top">
             <Grid.RowDefinitions>
