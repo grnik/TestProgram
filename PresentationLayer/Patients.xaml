@@ -1,0 +1,32 @@
+﻿<Window x:Class="PresentationLayer.Patients"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PresentationLayer"
+        mc:Ignorable="d"
+        Title="Patients" Height="450" Width="800" Activated="Window_Activated">
+    <DockPanel LastChildFill="True">
+        <WrapPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
+            <Button x:Name="btAdd" Click="btAdd_Click">Добавить</Button>
+            <Button x:Name="btEdit" Click="btEdit_Click" >Редактировать</Button>
+        </WrapPanel>
+        <Grid DockPanel.Dock="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <ListView Name="lvPatients" Grid.Row="0" Grid.Column="0">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Id}">Ключь</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=FIO}">ФИО</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Birth}">ДР</GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+    </DockPanel>
+</Window>

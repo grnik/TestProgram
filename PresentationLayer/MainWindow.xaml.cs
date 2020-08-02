@@ -31,5 +31,11 @@ namespace PresentationLayer
 
             visitTypes.ShowDialog();
         }
+
+        private void btPatients_Click(object sender, RoutedEventArgs e)
+        {
+            Patients patients = new Patients();
+            patients.ShowDialog();
+        }
     }
 }
