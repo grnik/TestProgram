@@ -10,6 +10,12 @@
         <WrapPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
             <Button x:Name="btAdd" Click="btAdd_Click">Добавить</Button>
             <Button x:Name="btEdit" Click="btEdit_Click" >Редактировать</Button>
+            <Button x:Name="btDelete" Click="btDelete_Click" >Удалить</Button>
+            <Button x:Name="btChoose" Click="btChoose_Click" Visibility="Hidden" >Выбрать</Button>
+        </WrapPanel>
+        <WrapPanel DockPanel.Dock="Top" Orientation="Horizontal">
+            <Button x:Name="btSearch" Click="btSearch_Click" >Найти</Button>
+            <TextBox x:Name="txtSearch" Width="150"></TextBox>
         </WrapPanel>
         <Grid DockPanel.Dock="Top">
             <Grid.RowDefinitions>
@@ -17,8 +23,9 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="9*"/>
             </Grid.ColumnDefinitions>
-            <ListView Name="lvPatients" Grid.Row="0" Grid.Column="0">
+            <ListView Name="lvPatients" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" MouseDoubleClick="lvPatients_MouseDoubleClick">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Id}">Ключь</GridViewColumn>

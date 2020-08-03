@@ -5,20 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PresentationLayer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Activated="Window_Activated">
     <DockPanel LastChildFill="True">
         <WrapPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
             <Button x:Name="btVisitType" Content="Типы посещений" Click="btVisitType_Click"/>
             <Button x:Name="btPatients" Content="Пациенты" Click="btPatients_Click"/>
         </WrapPanel>
-        <Grid DockPanel.Dock="Top">
+        <WrapPanel DockPanel.Dock="Top" Orientation="Horizontal">
+            <Button x:Name="btAdd" Content="Новое посещение" Click="btAdd_Click" />
+            <Button x:Name="btEdit" Content="Редактировать" Click="btEdit_Click"  />
+            <Button x:Name="btDelete" Content="Удалить" Click="btDelete_Click"  />
+        </WrapPanel>
+        <Grid >
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <DataGrid Name="dgList" Grid.Row="0" Grid.Column="0"></DataGrid>
+            <ListView Name="lvVisits" Grid.Row="0" Grid.Column="0">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Id}">Ключь</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Date}">Дата</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Patient.FIO}">ФИО</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=VisitType.Name}">Тип</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Diagnosis}">Диагноз</GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
         </Grid>
     </DockPanel>
 </Window>

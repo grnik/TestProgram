@@ -10,6 +10,8 @@
         <WrapPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
             <Button x:Name="btAdd" Click="btAdd_Click">Добавить</Button>
             <TextBox x:Name="txtName" Width="100" />
+            <Button x:Name="btDelete" Click="btDelete_Click" >Удалить</Button>
+            <Button x:Name="btChoose" Click="btChoose_Click" Visibility="Hidden" >Выбрать</Button>
         </WrapPanel>
         <Grid DockPanel.Dock="Top">
             <Grid.RowDefinitions>
@@ -18,7 +20,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <ListView Name="lvVisitTypes" Grid.Row="0" Grid.Column="0">
+            <ListView Name="lvVisitTypes" Grid.Row="0" Grid.Column="0" MouseDoubleClick="lvVisitTypes_MouseDoubleClick">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Id}">Ключь</GridViewColumn>

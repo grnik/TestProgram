@@ -13,7 +13,10 @@ namespace DataLayer
 
         public ApplicationContext()
         {
+            //Database.EnsureDeleted();
             Database.EnsureCreated();
+
+            //Database.Migrate();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
